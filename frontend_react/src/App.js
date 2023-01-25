@@ -1,6 +1,7 @@
-import React from 'react'
-import {About,Footer,Header,Testimonials,Work,Skills} from './container' 
-import { Navbar } from './components'
+import React from 'react';
+import {About,Footer,Header,Testimonials,Work,Skills} from './container';
+import { Navbar } from './components';
+import './App.scss';
 
 const App = () => {
   return (

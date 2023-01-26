@@ -25,7 +25,7 @@
       margin: 0.5rem;
   
       &:hover {
-        background-color: let(--secondary-color);
+        background-color: var(--secondary-color);
         color: #fff;
       }
   
@@ -36,7 +36,7 @@
     }
   
     .item-active {
-      background-color: let(--secondary-color);
+      background-color: var(--secondary-color);
       color: #fff;
     }
   }
@@ -117,7 +117,7 @@
       color: #fff;
   
       margin: 1rem;
-      font-family: let(--font-base);
+      font-family: var(--font-base);
       font-weight: 800;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -125,7 +125,7 @@
       svg {
         width: 50%;
         height: 50%;
-        color: let(--white-color);
+        color: var(--white-color);
       }
     }
   }

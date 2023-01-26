@@ -55,20 +55,20 @@
       }
   
       a {
-        color: let(--gray-color);
+        color: var(--gray-color);
         text-decoration: none;
         flex-direction: column;
         text-transform: uppercase;
         font-weight: 500;
         transition: all 0.3s ease-in-out;
         &:hover {
-          color: let(--secondary-color);
+          color: var(--secondary-color);
         }
       }
   
       &:hover {
         div {
-          background: let(--secondary-color);
+          background: var(--secondary-color);
         }
       }
     }
@@ -85,13 +85,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: let(--secondary-color);
+    background-color: var(--secondary-color);
   
   
     svg {
       width: 70%;
       height: 70%;
-      color: let(--white-color);
+      color: var(--white-color);
     }
   
     div {
@@ -108,7 +108,7 @@
       align-items: flex-end;
       flex-direction: column;
       background: url('../../assets/bgWhite.png');
-      background-color: let(--white-color);
+      background-color: var(--white-color);
       background-size: cover;
       background-repeat: repeat;
   
@@ -117,7 +117,7 @@
       svg {
         width: 35px;
         height: 35px;
-        color: let(--secondary-color);
+        color: var(--secondary-color);
         margin: 0.5rem 1rem;
       }
       ul {
@@ -130,19 +130,21 @@
         justify-content: flex-start;
         align-items: flex-start;
         flex-direction: column;
-
+  
         li {
           margin: 1rem;
   
           a {
-            color: let(--gray-color);
+            color: var(--gray-color);
             text-decoration: none;
             font-size: 1rem;
             text-transform: uppercase;
             font-weight: 500;
+  
             transition: all 0.3s ease-in-out;
+  
             &:hover {
-              color: let(--secondary-color);
+              color: var(--secondary-color);
             }
           }
         }

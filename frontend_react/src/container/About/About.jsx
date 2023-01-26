@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
-// import { AppWrap, MotionWrap } from '../../wrapper';
+import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
 import { urlFor, client } from '../../client';
-import {images} from '../../constants';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
-
-  // const abouts = [
-  //   {title: 'Fullstack Development', description: 'I am a fullstack developer',imgUrl: images.about01},
-  //   {title: 'Backend Development', description: 'I am a backend developer', imgUrl: images.about02},
-  //   {title: 'Frontend Development', description: 'I am a frontend developer',imgUrl: images.about03},
-  //   {title: 'MERN Stack', description: 'I am a design developer',imgUrl: images.about04},
-  // ]
 
   useEffect(() => {
     const query = '*[_type == "abouts"]';
@@ -47,10 +38,8 @@ const About = () => {
   );
 };
 
-// export default AppWrap(
-//   MotionWrap(About, 'app__about'),
-//   'about',
-//   'app__whitebg',
-// );
-
-export default About;
+export default AppWrap(
+  MotionWrap(About, 'app__about'),
+  'about',
+  'app__whitebg',
+);

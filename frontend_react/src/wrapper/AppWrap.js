@@ -8,7 +8,7 @@ const AppWrap = (Component, idName, classNames) => function HigherOrderComponent
       <div className="app__wrapper app__flex">
         <Component />
         <div className="copyright">
-          <p className="p-text">@2023 PAULDE </p>
+          <p className="p-text">@2023 De'Paul </p>
           <p className="p-text">All rights reserved</p>
         </div>
       </div>

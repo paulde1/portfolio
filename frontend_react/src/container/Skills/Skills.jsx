@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {Tooltip} from 'react-tooltip';
-
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import './Skills.scss';
+// import { Tooltip as ReactTooltip } from 'react-tooltip' 
 
 const Skills = () => {
   const [experiences, setExperiences] = useState([]);
@@ -48,14 +47,15 @@ const Skills = () => {
         </motion.div>
         <div className="app__skills-exp">
           {experiences.map((experience) => (
+            <>
             <motion.div
               className="app__skills-exp-item"
-              key={experience.year}
             >
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
-              <motion.div className="app__skills-exp-works">
+              <motion.div 
+              key = {experience.name} className="app__skills-exp-works">
                 {experience.works.map((work) => (
                   <>
                     <motion.div
@@ -64,29 +64,30 @@ const Skills = () => {
                       className="app__skills-exp-work"
                       data-tip
                       data-for={work.name}
-                      key={work.name}
-                    >
-                      <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
+                      key={work.name}>
+                    <h4 className="bold-text">{work.name}</h4>
                     </motion.div>
-                    <Tooltip
+                    <p className="p-text">{work.company}</p>
+                    <div></div>
+                    {/* <ReactTooltip
                       id={work.name}
                       effect="solid"
                       arrowColor="#fff"
                       className="skills-tooltip"
-                    >
-                      {work.desc}
-                    </Tooltip>
+                    > {work.desc}
+                    </ReactTooltip> */}
                   </>
                 ))}
               </motion.div>
             </motion.div>
+            </>
           ))}
         </div>
       </div>
     </>
   );
 };
+// having trouble implementing react tooltip? should switch to mui tooltip API instead?
 
 export default AppWrap(
   MotionWrap(Skills, 'app__skills'),

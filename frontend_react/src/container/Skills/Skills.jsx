@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import './Skills.scss';
-// import { Tooltip as ReactTooltip } from 'react-tooltip' 
 
 const Skills = () => {
   const [experiences, setExperiences] = useState([]);
@@ -69,13 +68,6 @@ const Skills = () => {
                     </motion.div>
                     <p className="p-text">{work.company}</p>
                     <div></div>
-                    {/* <ReactTooltip
-                      id={work.name}
-                      effect="solid"
-                      arrowColor="#fff"
-                      className="skills-tooltip"
-                    > {work.desc}
-                    </ReactTooltip> */}
                   </>
                 ))}
               </motion.div>
@@ -87,7 +79,7 @@ const Skills = () => {
     </>
   );
 };
-// having trouble implementing react tooltip? should switch to mui tooltip API instead?
+
 
 export default AppWrap(
   MotionWrap(Skills, 'app__skills'),

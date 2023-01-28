@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import './Skills.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 const Skills = () => {
   const [experiences, setExperiences] = useState([]);
@@ -22,8 +23,8 @@ const Skills = () => {
   }, []);
 
   return (
-    <>
-      <h2 className="head-text"> Skills & Experiences </h2>
+    < >
+      <h2 key={uuidv4} className="head-text"> Skills & Experiences </h2>
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
@@ -35,12 +36,13 @@ const Skills = () => {
               key={skill.name}
             >
               <div
+                key={uuidv4()}
                 className="app__flex"
                 style={{ backgroundColor: skill.bgColor }}
               >
-                <img src={urlFor(skill.icon)} alt={skill.name} />
+                <img key={uuidv4()}  src={urlFor(skill.icon)} alt={skill.name} />
               </div>
-              <p className="p-text">{skill.name}</p>
+              <p  key={uuidv4()} className="p-text">{skill.name}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -49,26 +51,28 @@ const Skills = () => {
             <>
             <motion.div
               className="app__skills-exp-item"
+              key={uuidv4()}
             >
-              <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.year}</p>
+              <div className="app__skills-exp-year"
+                  key={uuidv4()}>
+                <p key={uuidv4()}
+                className="bold-text">{experience.year}</p>
               </div>
               <motion.div 
               key = {experience.name} className="app__skills-exp-works">
                 {experience.works.map((work) => (
-                  <>
+                  <div  key={uuidv4()}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.5 }}
                       className="app__skills-exp-work"
                       data-tip
                       data-for={work.name}
-                      key={work.name}>
-                    <h4 className="bold-text">{work.name}</h4>
+                      key={uuidv4()}>
+                    <h4 key={uuidv4()} className="bold-text">{work.name}</h4>
                     </motion.div>
-                    <p className="p-text">{work.company}</p>
-                    <div></div>
-                  </>
+                    <p  key={uuidv4()} className="p-text">{work.company}</p>
+                  </div>
                 ))}
               </motion.div>
             </motion.div>
@@ -86,3 +90,4 @@ export default AppWrap(
   'skills',
   'app__whitebg',
 );
+

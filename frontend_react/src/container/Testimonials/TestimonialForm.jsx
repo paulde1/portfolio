@@ -20,11 +20,10 @@ const { username, company,imageUrl,feedback } = formData;
   const uploadImage = (event) => {
     const selectedFile = event.target.files[0];
     if (selectedFile.type === 'image/png' || selectedFile.type === 'image/svg' || selectedFile.type === 'image/jpeg' || selectedFile.type === 'image/gif' || selectedFile.type === 'image/tiff' ||selectedFile.type === 'image/webp') {
-      setLoading(true);
       client.assets
         .upload('image', selectedFile, { contentType: selectedFile.type, filename: selectedFile.name })
         .then((document) => {
-          setFormData({ imageUrl:document});
+          setFormData({...formData, imageUrl:document});
         })
         .catch((error) => {
           console.log('Upload failed:', error.message);

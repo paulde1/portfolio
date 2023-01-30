@@ -4,12 +4,16 @@ import { motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import './Testimonials.scss';
+import TestimonialForm from './TestimonialForm';
 
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
   const [brands, setBrands] = useState([]);
-
+  const [submitted, setSubmitted] = useState(false)
+  // const [formData, setFormData] = useState({ name: '', company: '', imageUrl:null, feedback: '' });
+  // const { username, company, imageUrl,feedback } = formData;
+  
   const handleClick = (index) => {
     setCurrentIndex(index);
   };
@@ -26,9 +30,12 @@ const Testimonial = () => {
       setBrands(data);
     });
   }, []);
-
+//<TestimonialForm id = {company} name = {username} imageUrl = {imageUrl} feedback = {feedback} />
   return (
     <>
+    {!submitted? (
+        <TestimonialForm />
+     ):null}
       {testimonials.length && (
         <>
           <div className="app__testimonial-item app__flex">

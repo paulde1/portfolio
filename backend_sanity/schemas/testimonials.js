@@ -13,14 +13,14 @@ export default {
             title:'Company',
             type: 'string',
         },
-        {
-            name:'imageUrl',
-            title:'ImgUrl',
-            type: 'image',
-            options: {
-                hotspot: true,
-            },
-        },
+        // {
+        //     name:'imageUrl',
+        //     title:'ImgUrl',
+        //     type: 'image',
+        //     options: {
+        //         hotspot: true,
+        //     },
+        // },
         {
             name:'feedback',
             title:'Feedback',

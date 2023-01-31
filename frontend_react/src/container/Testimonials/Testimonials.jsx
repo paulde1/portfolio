@@ -4,12 +4,23 @@ import { motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import './Testimonials.scss';
+import TestimonialForm from './TestimonialForm';
 
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [showForm, setShowForm] = useState(false)
+  
+  const handlePress = (event) => {
+    event.preventDefault();
+    setShowForm(true)
+  }
 
+  const handleClose = (event) => {
+    event.preventDefault();
+    setShowForm(false)
+  }
   const handleClick = (index) => {
     setCurrentIndex(index);
   };
@@ -26,9 +37,10 @@ const Testimonial = () => {
       setBrands(data);
     });
   }, []);
-
   return (
     <>
+     <div>
+    </div>
       {testimonials.length && (
         <>
           <div className="app__testimonial-item app__flex">
@@ -51,6 +63,14 @@ const Testimonial = () => {
               <HiChevronRight />
             </div>
           </div>
+          {!showForm ?(
+         <form>
+         <button onClick={handlePress}>Submit a Testimony</button>
+       </form>
+      ):  <form>
+        <button onClick={handleClose}>Close X</button>
+      <TestimonialForm/> 
+        </form>}
         </>
       )}
 

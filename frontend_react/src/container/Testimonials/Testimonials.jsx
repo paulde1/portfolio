@@ -10,10 +10,17 @@ const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
   const [brands, setBrands] = useState([]);
-  const [submitted, setSubmitted] = useState(false)
-  // const [formData, setFormData] = useState({ name: '', company: '', imageUrl:null, feedback: '' });
-  // const { username, company, imageUrl,feedback } = formData;
+  const [showForm, setShowForm] = useState(false)
   
+  const handlePress = (event) => {
+    event.preventDefault();
+    setShowForm(true)
+  }
+
+  const handleClose = (event) => {
+    event.preventDefault();
+    setShowForm(false)
+  }
   const handleClick = (index) => {
     setCurrentIndex(index);
   };
@@ -30,12 +37,10 @@ const Testimonial = () => {
       setBrands(data);
     });
   }, []);
-//<TestimonialForm id = {company} name = {username} imageUrl = {imageUrl} feedback = {feedback} />
   return (
     <>
-    {!submitted? (
-        <TestimonialForm />
-     ):null}
+     <div>
+    </div>
       {testimonials.length && (
         <>
           <div className="app__testimonial-item app__flex">
@@ -58,6 +63,14 @@ const Testimonial = () => {
               <HiChevronRight />
             </div>
           </div>
+          {!showForm ?(
+         <form>
+         <button onClick={handlePress}>Submit a Testimony</button>
+       </form>
+      ):  <form>
+        <button onClick={handleClose}>Close X</button>
+      <TestimonialForm/> 
+        </form>}
         </>
       )}
 

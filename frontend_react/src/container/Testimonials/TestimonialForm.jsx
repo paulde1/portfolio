@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../client';
 import './TestimonialForm.scss';
-import { images } from '../../constants';
+import { BsEmojiSmile } from 'react-icons/bs';
+
 const TestimonialForm = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({ name: '', company: '', imageUrl:images.logo, feedback: '' });
+  const [formData, setFormData] = useState({ name: '', company: '', imageUrl:{}, feedback: '' });
 
-//   const { username, company,feedback } = props;
-const { username, company,imageUrl,feedback } = formData;
+const { username, company,feedback } = formData;
 
 
   const handleChangeInput = (e) => {
@@ -18,6 +18,7 @@ const { username, company,imageUrl,feedback } = formData;
   };
 
   const uploadImage = (event) => {
+    event.preventDefault()
     const selectedFile = event.target.files[0];
     if (selectedFile.type === 'image/png' || selectedFile.type === 'image/svg' || selectedFile.type === 'image/jpeg' || selectedFile.type === 'image/gif' || selectedFile.type === 'image/tiff' ||selectedFile.type === 'image/webp') {
       client.assets
@@ -28,14 +29,11 @@ const { username, company,imageUrl,feedback } = formData;
         .catch((error) => {
           console.log('Upload failed:', error.message);
         });
-    // } else {
-    //   setFormData({ imageUrl:null})
- 
-    // }
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     setLoading(true);
 
     const testimonials = {
@@ -45,15 +43,6 @@ const { username, company,imageUrl,feedback } = formData;
       imageUrl: formData.imageUrl,
       feedback: formData.feedback,
     };
-
-    // const testimonials = {
-    //     _type: 'testimonials',
-    //     name: props.username,
-    //     company: props.company,
-    //     imageUrl: props.imageUrl,
-    //     feedback: props.feedback,
-    //   };
-  
 
     client.create(testimonials)
       .then(() => {
@@ -65,17 +54,18 @@ const { username, company,imageUrl,feedback } = formData;
 
   return (
     <>
-      <h2 className="head-text">Testimonial Form</h2>
       {!isFormSubmitted ? (
         <div className="app__testimonials-form app__flex">
+         <h2 className="head-text">Testimonial Form</h2>
           <div className="app__flex">
             <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
           </div>
           <div className="app__flex">
-            <input className="p-text" type="text" placeholder="title and/or organization" name="company" value={company} onChange={handleChangeInput} />
+           <input className="p-text" type="text" placeholder="title and/or organization" name="company" value={company} onChange={handleChangeInput} />
           </div>
           <div className="app__flex">
-            <input  type="file" alt= 'profile-img' placeholder="add a photo" name="company"  onChange={uploadImage} />
+            <p className='text1'>Consider adding a headshot <BsEmojiSmile/></p>
+          <input required type="file" alt= 'profile-img' placeholder="upload photo for faster approval" name="image"  onChange={uploadImage}/>
           </div>
           <div>
             <textarea
@@ -90,9 +80,9 @@ const { username, company,imageUrl,feedback } = formData;
         </div>
       ) : (
         <div>
-          <h3 className="head-text">
-            Thank you sharing your experience!
-          </h3>
+          <h4 className="text">
+            Thank you sharing your experience! Your thoughts will be automatically approved shortly.
+          </h4>
         </div>
       )}
     </>

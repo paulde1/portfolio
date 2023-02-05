@@ -7,7 +7,7 @@ import './Header.scss';
 
 const scaleVariants = {
   whileInView: {
-    scale: [0, 1],
+    scale: [0, 0.5],
     opacity: [0, 1],
     transition: {
       duration: .7,
@@ -42,7 +42,7 @@ const Header = () => (
 
     <motion.div
       whileInView={{ opacity: [0, 1] }}
-      transition={{ duration: 0.5, delayChildren: 0.5 }}
+      transition={{ duration: 0.3, delayChildren: 0.3 }}
       className="app__header-img"
     >
       <img src={images.profile} alt="profile_bg" />

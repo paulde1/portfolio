@@ -7,14 +7,15 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Portfolio site for Paul"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.webp" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Paul's Portfolio</title>
   </head>
   <body>
-    <script>
+    <script>"serviceWorker"in navigator&&window.addEventListener("load",(function(){navigator.serviceWorker.register("serviceWorker.js").then((function(e){console.log("ServiceWorker registration successful with scope: ",e.scope)}),(function(e){console.log("ServiceWorker registration failed: ",e)}))}))</script>
+    <!-- <script>
       if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
       navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
@@ -26,7 +27,7 @@
       });
       });
       }
-      </script>
+      </script> -->
     <div id="root"></div>
   </body>
 </html>

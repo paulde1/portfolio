@@ -20,6 +20,7 @@ npm start
 
 *you will need to create a .env file with the following two variables at the root of your frontend directory*:
 -REACT_APP_SANITY_PROJECT_ID
+
 -REACT_APP_SANITY_TOKEN
 
 *To get a Live Preview of this Project go to pauldecunha.com* 

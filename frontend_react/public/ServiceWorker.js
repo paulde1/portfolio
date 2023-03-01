@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 let CACHE_NAME = 'Portfolio-cache-' + Date.now;
 const urlsToCache = [
 '/',

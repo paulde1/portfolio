@@ -1,6 +1,6 @@
 {
-  "short_name": "De'Paul",
-  "name": "De'Paul's Portfolio",
+  "short_name": "DePaul",
+  "name": "DePaul Portfolio",
   "lang": "en-US",
   "start_url": ".",
   "icons": [
@@ -10,13 +10,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "logo192.webp",
+      "type": "image/webp",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
+      "src": "logo512.webp",
+      "type": "image/webp",
       "sizes": "512x512"
     }
   ],

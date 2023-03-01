@@ -112,11 +112,9 @@
     background-color: var(--white-color);
     margin: 0.25rem 0;
     border: 1px solid var(--lightGray-color);
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     transition: all 0.3s ease-in-out;
 
     svg {
@@ -137,7 +135,6 @@
     @media screen and (min-width: 2000px) {
       width: 70px;
       height: 70px;
-
       margin: 0.5rem 0;
 
       svg {
